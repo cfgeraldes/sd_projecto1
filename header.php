@@ -1,14 +1,21 @@
 <?php 
 
-$dbhost = 'localhost';
-$dbuser = 'root';
-$dbpass = '';
-
-$conn = mysql_connect($dbhost, $dbuser, $dbpass) or trigger_error (mysql_error(),E_USER_ERROR);
-
-$dbname = 'mydb';
-mysql_select_db($dbname);
-
-
+<?php
+    // DB connection info
+    //TODO: Update the values for $host, $user, $pwd, and $db
+    //using the values you retrieved earlier from the portal.
+    $host = 'tcp:x0fuvnduvl.database.windows.net,1433';
+    $user = 'unicloudadmin';
+    $pwd = '123456As';
+    $db = 'mydb';
+    // Connect to database.
+    try {
+        $conn = new PDO( sqlsrv:server = tcp:x0fuvnduvl.database.windows.net,1433; Database = [mydb], $user, $pwd);
+        $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+    }
+    catch(Exception $e){
+        die(var_dump($e));
+    }
+?>
 ?>
 
