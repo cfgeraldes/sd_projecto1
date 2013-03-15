@@ -19,18 +19,18 @@ $mypassword=addslashes($_POST['password']);
 
 $sql="SELECT idUtilizador FROM Utilizador WHERE nome='$myusername' and password='$mypassword'";
 $result=sqlsrv_query($conn, $sql);
-$row=sqlsrv_fetch_array($result, SQLSRV_FETCH_NUMERIC);
+//$row=sqlsrv_fetch_array($result, SQLSRV_FETCH_NUMERIC);
 //$active=$row['active'];
-$count=sqlsrv_num_rows($row);
-echo "$count";
+//$count=sqlsrv_num_rows($result);
+echo "$result";
 // If result matched $myusername and $mypassword, table row must be 1 row
-if($count==1)
+if($result===true)
 {
 //session_register("myusername");
 //$_SESSION['login_user']=$myusername;
 header("location: universidades.php");
 }
-	if($count==0) 
+	if($result===false) 
 {
 echo "Your Login Name or Password is invalid";
 }
