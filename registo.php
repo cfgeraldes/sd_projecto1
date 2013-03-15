@@ -39,10 +39,10 @@
       <td>Universidade:</td>
       <td><select name="Universidade" id="Universidades_id_universidade">
                 <?php
-			$filter="select distinct fuel_type from car";
+			$filter="SELECT universidades.nome, universidades.id_universidade FROM universidades";
 			$result=sqlsrv_query($conn, $filter);
 				while($row = sqlsrv_fetch_array($result)) {
-					$options ="<option>" . $row['fuel_type'] . "</option>";
+					$options ="<option>" . $row['nome'] . "</option>";
 
 					$menu="<form id='filter' name='filter' method='post' action=''>
 					  <p><label>Filter</label></p>
