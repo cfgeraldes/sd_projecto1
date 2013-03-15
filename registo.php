@@ -39,22 +39,21 @@
       <td>Universidade:</td>
       <td><select name="Universidade" id="Universidades_id_universidade">
                 <?php
-				
-				$query_lista_universidades = "SELECT universidades.nome, universidades.id_universidade FROM universidades";
-				$lista_universidades = sqlsrv_query($conn,$query_lista_universidades, ) or die("error");
-				do {  
+			$filter="select distinct fuel_type from car";
+			$result=sqlsrv_query($conn, $filter);
+				while($row = sqlsrv_fetch_array($result)) {
+					$options ="<option>" . $row['fuel_type'] . "</option>";
+
+					$menu="<form id='filter' name='filter' method='post' action=''>
+					  <p><label>Filter</label></p>
+ 					   <select name='filter' id='filter'>
+ 				     " . $options . "
+    					</select>
+					</form>";
+
+					echo $menu;
 				?>
-                	<option value="<?php echo $row_lista_universidades['id_universidade']?>">
-					<?php echo $row_lista_universidades['nome']	?></option>
-               		<?php
-					} while ($row_lista_universidades = sqlsrv_fetch_array($lista_universidades,$SQLSRV_FETCH_ASSOC)
-					  $rows = sqlsrv_num_rows($lista_universidades);
-					  if($rows > 0) {
-						 // sqlsrv_data_seek($lista_universidades, 0);
-						  $row_lista_universidades = sqlsrv_fetch($lista_universidades);
-					  }
-				?>
-              </select></td> 
+          </select></td> 
     </tr>
    <tr>
       <td>&nbsp;</td>
