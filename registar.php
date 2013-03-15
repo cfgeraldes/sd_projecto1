@@ -10,17 +10,17 @@
 //if ($_POST['Universidades_id_universidade']){			
 			                   	  
 
-$sql=mysql_query ("INSERT INTO `utilizador`(`idUtilizador`, `nome`, `bilhete_identidade`, `password`, `mail`, `telefone`, `Universidades_id_universidade`) VALUES ('null','".$_POST['nome']."','".$_POST['bilhete_identidade']."','".$_POST['password']."','".$_POST['mail']."','".$_POST['telefone']."','".$_POST['Universidade']."')");
+$sql="INSERT INTO `utilizador`(`idUtilizador`, `nome`, `bilhete_identidade`, `password`, `mail`, `telefone`, `Universidades_id_universidade`) VALUES ('null','".$_POST['nome']."','".$_POST['bilhete_identidade']."','".$_POST['password']."','".$_POST['mail']."','".$_POST['telefone']."','".$_POST['Universidade']."')";
 
 //$registo=mysql_query($sql,$ligacao);
 //$resultado = mysql_select_db("mydb",$sql);
-$reg_ins = mysql_affected_rows();
+$reg_ins = sqlsrv_query($conn, $sql);
 echo "$reg_ins registo inserido com sucesso";
 //Check whether the query was successful or not
-if($reg_ins) {
-header("location: index.php");
-exit();
+if($reg_ins === false) {
+	die("Query failed");
+	exit();
 }else {
-die("Query failed");
+header("location: index.php");
 }
 ?>
