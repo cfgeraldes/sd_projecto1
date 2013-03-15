@@ -21,13 +21,13 @@ $sql="SELECT idUtilizador FROM Utilizador WHERE nome='$myusername' and password=
 $result=sqlsrv_query($conn, $sql);
 $row=sqlsrv_fetch_array($conn, $result);
 $active=$row['active'];
-$count=sqlsrv_num_rows($conn, $result);
+echo "merda";
+$count=sqlsrv_num_rows( $result);
 // If result matched $myusername and $mypassword, table row must be 1 row
 if($count==1)
 {
 //session_register("myusername");
 //$_SESSION['login_user']=$myusername;
-echo "entrou";
 header("location: universidades.php");
 }
 	if($count==0) 
