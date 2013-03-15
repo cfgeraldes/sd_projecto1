@@ -15,7 +15,4 @@ $serverName = "tcp:x0fuvnduvl.database.windows.net,1433";
    {
      FatalError("Failed to connect...");
    }
-   else{
-      echo "ligou";
-   }
    ?>
