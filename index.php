@@ -21,9 +21,8 @@ $sql="SELECT idUtilizador FROM Utilizador WHERE nome='$myusername' and password=
 $result=sqlsrv_query($conn, $sql);
 $row=sqlsrv_fetch_array($result);
 $active=$row['active'];
-echo "merda1";
 $count=sqlsrv_num_rows($result);
-echo "merda2";
+echo "$count";
 // If result matched $myusername and $mypassword, table row must be 1 row
 if($count==1)
 {
