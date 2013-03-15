@@ -33,28 +33,13 @@
         <input name="telefone" type="text" id="telefone" maxlength="15" />
       </label></td>
     </tr>
-    <tr>
-
-    <tr>
+      <tr>
       <td>Universidade:</td>
-      <td><select name="Universidade" id="Universidades_id_universidade">
-                <?php
-			$filter="SELECT universidades.nome, universidades.id_universidade FROM universidades";
-			$result=sqlsrv_query($conn, $filter);
-				while($row = sqlsrv_fetch_array($result)) {
-					$options ="<option>" . $row['nome'] . "</option>";
-
-					$menu="<form id='filter' name='filter' method='post' action=''>
-					  <p><label>Filter</label></p>
- 					   <select name='filter' id='filter'>
- 				     " . $options . "
-    					</select>
-					</form>";
-
-					echo $menu;
-				?>
-          </select></td> 
+      <td><label>
+        <input name="Universidades_id_universidade" type="int" id="Universidades_id_universidade" maxlength="15" />
+      </label></td>
     </tr>
+    
    <tr>
       <td>&nbsp;</td>
       <td align="right"><label>
