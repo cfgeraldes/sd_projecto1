@@ -18,6 +18,7 @@ $myusername=addslashes($_POST['username']);
 $mypassword=addslashes($_POST['password']); 
 
 $sql="SELECT idUtilizador FROM Utilizador WHERE nome='$myusername' and password='$mypassword'";
+echo "sql";
 $result=sqlsrv_query($sql);
 $row=sqlsrv_fetch_array($result);
 $active=$row['active'];
