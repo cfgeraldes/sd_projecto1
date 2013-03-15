@@ -24,13 +24,13 @@ $result=sqlsrv_query($conn, $sql);
 //$count=sqlsrv_num_rows($result);
 echo "$result";
 // If result matched $myusername and $mypassword, table row must be 1 row
-if($result===true)
+if($result === true)
 {
 //session_register("myusername");
 //$_SESSION['login_user']=$myusername;
 header("location: universidades.php");
 }
-	if($result===false) 
+	if($result === false) 
 {
 echo "Your Login Name or Password is invalid";
 }
