@@ -1,4 +1,4 @@
-<?php 
+
 
 <?php
     // DB connection info
@@ -16,6 +16,5 @@
     catch(Exception $e){
         die(var_dump($e));
     }
-?>
 ?>
 
