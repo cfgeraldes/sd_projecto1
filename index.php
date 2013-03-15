@@ -22,16 +22,18 @@ $result=sqlsrv_query($conn, $sql);
 //$row=sqlsrv_fetch_array($result, SQLSRV_FETCH_NUMERIC);
 //$active=$row['active'];
 //$count=sqlsrv_num_rows($result);
-echo "$result";
+//echo "$result";
 // If result matched $myusername and $mypassword, table row must be 1 row
-if($result === true)
+if($result === false)
 {
+	FataError("FAiled to login".$sql);
 //session_register("myusername");
 //$_SESSION['login_user']=$myusername;
-header("location: universidades.php");
 }
-	if($result === false) 
+else
 {
+	echo "Your Login Namelid";
+header("location: universidades.php");	
 echo "Your Login Name or Password is invalid";
 }
 }
