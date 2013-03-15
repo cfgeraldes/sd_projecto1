@@ -4,7 +4,7 @@
     // DB connection info
     //TODO: Update the values for $host, $user, $pwd, and $db
     //using the values you retrieved earlier from the portal.
-    $host = 'tcp:x0fuvnduvl.database.windows.net,1433';
+    $host = 'tcp:x0fuvnduvl.database.windows.net';
     $user = 'unicloudadmin';
     $pwd = '123456As';
     $db = 'mydb';
