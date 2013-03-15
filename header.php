@@ -1,20 +1,20 @@
 
-
 <?php
-    // DB connection info
-    //TODO: Update the values for $host, $user, $pwd, and $db
-    //using the values you retrieved earlier from the portal.
-    $host = 'tcp:x0fuvnduvl.database.windows.net';
-    $user = 'unicloudadmin';
-    $pwd = '123456As';
-    $db = 'mydb';
-    // Connect to database.
-    try {
-        $conn = new PDO( "mysql:host=$host;dbname=$db", $user, $pwd);
-        $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-    }
-    catch(Exception $e){
-        die(var_dump($e));
-    }
-?>
 
+
+
+$serverName = "tcp:x0fuvnduvl.database.windows.net,1433";
+   $userName = 'unicloudadmin@x0fuvnduvl';
+   $userPassword = '123456As';
+   $dbName = "mydb";
+  
+   $connectionInfo = array("Database"=>$dbName, "UID"=>$userName, "PWD"=>$userPassword, "MultipleActiveResultSets"=>true);
+
+   sqlsrv_configure('WarningsReturnAsErrors', 0);
+   $conn = sqlsrv_connect( $serverName, $connectionInfo);
+   if($conn === false)
+   {
+     FatalError("Failed to connect...");
+   }
+
+?>
