@@ -19,8 +19,9 @@ $mypassword=addslashes($_POST['password']);
 
 $sql="SELECT idUtilizador FROM Utilizador WHERE nome='$myusername' and password='$mypassword'";
 $result=sqlsrv_query($conn, $sql);
-$row=sqlsrv_fetch_array($result);
-$active=$row['active'];
+$row=sqlsrv_fetch_array($result, SQLSRV_FETCH_NUMERIC);
+echo "$row[0]";
+//$active=$row['active'];
 $count=sqlsrv_num_rows($result);
 echo "$count";
 // If result matched $myusername and $mypassword, table row must be 1 row
