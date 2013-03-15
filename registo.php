@@ -41,19 +41,19 @@
                 <?php
 				
 				$query_lista_universidades = "SELECT universidades.nome, universidades.id_universidade FROM universidades";
-				$lista_universidades = mysql_query($query_lista_universidades, $conn) or die(mysql_error());
-				$row_lista_universidades = mysql_fetch_assoc($lista_universidades);
-				$totalRows_lista_universidades = mysql_num_rows($lista_universidades);
+				$lista_universidades = sqlsrv_query($conn,$query_lista_universidades, ) or die("error");
+				$row_lista_universidades = sqlsrv_fetch_row($lista_universidades);
+				$totalRows_lista_universidades = sqlsrv_num_rows($lista_universidades);
 				do {  
 				?>
                 	<option value="<?php echo $row_lista_universidades['id_universidade']?>">
 					<?php echo $row_lista_universidades['nome']	?></option>
                		<?php
-					} while ($row_lista_universidades = mysql_fetch_assoc($lista_universidades));
-					  $rows = mysql_num_rows($lista_universidades);
+					} while ($row_lista_universidades = sqlsrv_fetch_assoc($lista_universidades));
+					  $rows = sqlsrv_num_rows($lista_universidades);
 					  if($rows > 0) {
-						  mysql_data_seek($lista_universidades, 0);
-						  $row_lista_universidades = mysql_fetch_assoc($lista_universidades);
+						  sqlsrv_data_seek($lista_universidades, 0);
+						  $row_lista_universidades = sqlsrv_fetch_assoc($lista_universidades);
 					  }
 				?>
               </select></td> 
